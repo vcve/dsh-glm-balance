@@ -1,0 +1,6 @@
+{
+	"meta": {
+		"title": "GLM Balance",
+		"description": "Shows the GLM Coding Plan quota (5-hour and weekly limits, reset times, tool/MCP usage, today's usage) in a status bar under the composer, plus a glm_balance tool."
+	}
+}

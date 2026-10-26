@@ -1,0 +1,38 @@
+{
+	"name": "@local/glm-balance",
+	"version": "1.0.0",
+	"type": "module",
+	"description": "GLM Coding Plan quota for DeepSeek Harness: status bar under the composer (5h/weekly limits, MCP usage, today usage) + glm_balance query tool. 在输入框下方常驻显示智谱 GLM Coding Plan 余量。",
+	"exports": {
+		".": "./index.js",
+		"./locale/*.json": "./locale/*.json",
+		"./icon": "./icon.svg"
+	},
+	"files": [
+		"index.js",
+		"cordis.patch.yml",
+		"locale/*.json",
+		"icon.svg",
+		"README.md"
+	],
+	"dsh": {
+		"bundle": {
+			"patch": "./cordis.patch.yml"
+		}
+	},
+	"author": "vcve",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vcve/dsh-glm-balance.git"
+	},
+	"keywords": [
+		"dsh",
+		"deepseek-harness",
+		"glm",
+		"zhipu",
+		"bigmodel",
+		"coding-plan",
+		"quota"
+	]
+}
