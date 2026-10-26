@@ -1,0 +1,6 @@
+- insert:
+    - id: glm-balance
+      name: '@local/glm-balance'
+      config:
+        apiKeyRef: ZAI_CODING_CN_API_KEY
+        baseURL: https://open.bigmodel.cn
