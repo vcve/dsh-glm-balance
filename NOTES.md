@@ -75,7 +75,7 @@ GET /api/monitor/usage/tool-usage?…        # 同参数格式
 
 ## 改动流程（以后要改就照这个来）
 
-1. 改 `~/Documents/dsh-glm-balance/` 下源码；
+1. 改 `~/Documents/Projects/dsh-glm-balance/` 下源码；
 2. `node --check index.js client.js`；
 3. 打 tarball（不含目录条目）→ `remove_bundle` → `install_bundle file:/tmp/….tgz`；
 4. 装完把 `locale/*.json` 归位（见第 6 条）；
