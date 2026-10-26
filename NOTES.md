@@ -80,3 +80,32 @@ GET /api/monitor/usage/tool-usage?…        # 同参数格式
 3. 打 tarball（不含目录条目）→ `remove_bundle` → `install_bundle file:/tmp/….tgz`；
 4. 装完把 `locale/*.json` 归位（见第 6 条）；
 5. **重启 DSH Desktop**；视觉验证右下状态栏 + 内置栏共存不遮挡。
+
+## 发布与收尾记录（2026-10-26，项目已关闭）
+
+- **开源仓库**：https://github.com/vcve/dsh-glm-balance（MIT）
+- **Release**：v1.0.0，附安装 tgz（下载后 DSH 插件管理本地安装 + 重启）
+- **市场收录**：已向精选列表提交 PR（awesome-dsh-plugin#9512，分类 `usage`），
+  合并后即可在 dshmarket「发现」页搜到；流程 = fork 后加
+  `data/plugins/<owner>__<repo>.yml` 一个文件（url/name/category/description 双语）。
+
+### 隐私加固教训（公开发布必查清单）
+
+1. **git 提交身份**：机器全局配置是真名+真实邮箱，公开仓库提交前必须
+   `git config user.name/user.email` 覆盖为 GitHub 用户名 + `users.noreply.github.com`。
+2. **改文件 ≠ 改历史**：修完敏感信息后若只是追加提交，旧提交仍可 `git log -p` 看到；
+   要 `--orphan` 重做成单提交再 force push。
+3. **Release 资产是独立副本**：历史重写后，之前上传的 tgz 里还是旧文件，必须删掉重传。
+4. **全深度自查命令**：
+   `git grep -in "<敏感词>" $(git rev-list --all)`（扫所有提交的所有文件）
+   + `gh api repos/<owner>/<repo>/commits` 核对线上作者身份。
+5. **README 预览图**：真机截图会带出会话标题、工作区名、真实用量；用 Pillow 按真实
+   样式重绘"示意图"（占位数据）即可，注意系统 CJK 字体用 Hiragino Sans GB.ttc（SFNS
+   不含中文），缺字形的符号（↻）用手绘弧线+三角代替。
+6. **复用本机已有登录态**：`gh auth status` 发现已登录即可直接 `gh repo create/create PR`，
+   无需向用户索要凭证。
+
+### 复装/迁移速查
+
+改代码 → `node --check` → 打 tgz（含 locale/ 子路径）→ `remove_bundle` +
+`install_bundle file:…tgz` → 装完把 `*.json` 归位 `locale/` → 重启 DSH Desktop。
